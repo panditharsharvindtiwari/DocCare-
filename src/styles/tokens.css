@@ -1,0 +1,120 @@
+/* ============================================================
+   Doctor Care Plus — Design Tokens
+   Single source of truth for all visual primitives.
+   No component should introduce values outside these tokens.
+   ============================================================ */
+
+:root {
+  /* ---- Colors ---- */
+  --color-bg:              #F7F7F4;
+  --color-bg-secondary:    #F0F0EC;
+  --color-bg-white:        #FFFFFF;
+
+  --color-text-primary:    #17232D;
+  --color-text-secondary:  #5F6870;
+  --color-text-disabled:   #9AA3A8;
+  --color-text-inverse:    #FFFFFF;
+
+  --color-accent-primary:  #3D4E9A;
+  --color-accent-hover:    #2E3B7E;
+  --color-accent-light:    #EEF0FA;
+  --color-accent-secondary: #B86B52;
+  --color-accent-secondary-light: #FAF0ED;
+
+  --color-success:         #287D72;
+  --color-success-light:   #E8F4F2;
+  --color-warning:         #A66A00;
+  --color-warning-light:   #FBF4E6;
+  --color-error:           #B44444;
+  --color-error-light:     #FAEAEA;
+  --color-info:            #3D4E9A;
+  --color-info-light:      #EEF0FA;
+
+  --color-border:          #DDE1E3;
+  --color-border-strong:   #C8CDD0;
+  --color-border-focus:    #3D4E9A;
+
+  /* ---- Status badge colors ---- */
+  --color-status-booked:          #3D4E9A;
+  --color-status-booked-bg:       #EEF0FA;
+  --color-status-confirmed:       #287D72;
+  --color-status-confirmed-bg:    #E8F4F2;
+  --color-status-checked-in:      #287D72;
+  --color-status-checked-in-bg:   #D4EDE9;
+  --color-status-waiting:         #A66A00;
+  --color-status-waiting-bg:      #FBF4E6;
+  --color-status-in-consultation: #B86B52;
+  --color-status-in-consultation-bg: #FAF0ED;
+  --color-status-completed:       #17232D;
+  --color-status-completed-bg:    #E8EAEC;
+  --color-status-cancelled:       #B44444;
+  --color-status-cancelled-bg:    #FAEAEA;
+  --color-status-rescheduled:     #5F6870;
+  --color-status-rescheduled-bg:  #EDF0F2;
+
+  /* ---- Typography ---- */
+  --font-family:           'Inter', 'Source Sans 3', system-ui, sans-serif;
+
+  --font-size-display:     2.5rem;    /* 40px */
+  --font-size-h1:          2rem;      /* 32px */
+  --font-size-h2:          1.5rem;    /* 24px */
+  --font-size-h3:          1.25rem;   /* 20px */
+  --font-size-h4:          1.125rem;  /* 18px */
+  --font-size-body-lg:     1.0625rem; /* 17px */
+  --font-size-body:        0.9375rem; /* 15px */
+  --font-size-body-sm:     0.875rem;  /* 14px */
+  --font-size-caption:     0.8125rem; /* 13px */
+  --font-size-label:       0.75rem;   /* 12px */
+
+  --font-weight-regular:   400;
+  --font-weight-medium:    500;
+  --font-weight-semibold:  600;
+  --font-weight-bold:      700;
+
+  --line-height-tight:     1.2;
+  --line-height-normal:    1.5;
+  --line-height-relaxed:   1.7;
+
+  /* ---- Spacing ---- */
+  --space-1:   4px;
+  --space-2:   8px;
+  --space-3:   12px;
+  --space-4:   16px;
+  --space-5:   20px;
+  --space-6:   24px;
+  --space-8:   32px;
+  --space-10:  40px;
+  --space-12:  48px;
+  --space-16:  64px;
+  --space-20:  80px;
+
+  /* ---- Border Radius ---- */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+
+  /* ---- Shadows ---- */
+  --shadow-sm:  0 1px 3px rgba(23, 35, 45, 0.06);
+  --shadow-md:  0 2px 8px rgba(23, 35, 45, 0.08);
+  --shadow-lg:  0 4px 16px rgba(23, 35, 45, 0.10);
+
+  /* ---- Component Dimensions ---- */
+  --header-height:         72px;
+  --container-max-width:   1200px;
+  --button-height-sm:      36px;
+  --button-height-md:      44px;
+  --button-height-lg:      52px;
+  --input-height:          44px;
+  --input-height-sm:       36px;
+
+  /* ---- Transitions ---- */
+  --transition-fast:       150ms ease;
+  --transition-normal:     200ms ease;
+  --transition-slow:       300ms ease;
+
+  /* ---- Z-Index ---- */
+  --z-navbar:   100;
+  --z-modal:    200;
+  --z-toast:    300;
+}

@@ -1,0 +1,33 @@
+.status-badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  white-space: nowrap;
+}
+
+.status-badge--booked         { color: var(--color-status-booked);          background: var(--color-status-booked-bg); }
+.status-badge--confirmed      { color: var(--color-status-confirmed);        background: var(--color-status-confirmed-bg); }
+.status-badge--checked-in     { color: var(--color-status-checked-in);       background: var(--color-status-checked-in-bg); }
+.status-badge--waiting        { color: var(--color-status-waiting);          background: var(--color-status-waiting-bg); }
+.status-badge--in-consultation { color: var(--color-status-in-consultation); background: var(--color-status-in-consultation-bg); }
+.status-badge--completed      { color: var(--color-status-completed);        background: var(--color-status-completed-bg); }
+.status-badge--cancelled      { color: var(--color-status-cancelled);        background: var(--color-status-cancelled-bg); }
+.status-badge--rescheduled    { color: var(--color-status-rescheduled);      background: var(--color-status-rescheduled-bg); }
+
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 2px var(--space-2);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+}
+
+.badge--default { color: var(--color-text-secondary); background: var(--color-bg-secondary); }
+.badge--accent  { color: var(--color-accent-primary); background: var(--color-accent-light); }
+.badge--success { color: var(--color-success);        background: var(--color-success-light); }
+.badge--warning { color: var(--color-warning);        background: var(--color-warning-light); }
+.badge--error   { color: var(--color-error);          background: var(--color-error-light); }

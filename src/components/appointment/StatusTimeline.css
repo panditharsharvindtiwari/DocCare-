@@ -1,0 +1,95 @@
+.status-timeline {
+  display: flex;
+  align-items: flex-start;
+  gap: 0;
+  flex-wrap: wrap;
+  row-gap: var(--space-4);
+}
+
+.status-timeline--cancelled,
+.status-timeline--rescheduled {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  color: var(--color-error);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  padding: var(--space-3);
+  background-color: var(--color-error-light);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--color-error);
+}
+
+.status-timeline--rescheduled {
+  color: var(--color-status-rescheduled);
+  background-color: var(--color-status-rescheduled-bg);
+  border-color: var(--color-border);
+}
+
+.status-timeline__step {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  position: relative;
+}
+
+.status-timeline__icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+
+.status-timeline__step--done .status-timeline__icon {
+  color: var(--color-success);
+}
+
+.status-timeline__step--current .status-timeline__icon {
+  color: var(--color-accent-primary);
+}
+
+.status-timeline__step--pending .status-timeline__icon {
+  color: var(--color-border-strong);
+}
+
+.status-timeline__dot--current {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: var(--color-accent-primary);
+  box-shadow: 0 0 0 4px var(--color-accent-light);
+}
+
+.status-timeline__line {
+  position: absolute;
+  top: 12px;
+  left: calc(50% + 12px);
+  right: calc(-50% + 12px);
+  height: 1px;
+  background-color: var(--color-border);
+}
+
+.status-timeline__line--done {
+  background-color: var(--color-success);
+}
+
+.status-timeline__label {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-secondary);
+  text-align: center;
+  margin-top: var(--space-2);
+  padding: 0 var(--space-1);
+}
+
+.status-timeline__step--done .status-timeline__label {
+  color: var(--color-success);
+}
+
+.status-timeline__step--current .status-timeline__label {
+  color: var(--color-accent-primary);
+  font-weight: var(--font-weight-semibold);
+}

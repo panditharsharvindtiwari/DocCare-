@@ -1,0 +1,124 @@
+.find-doctor-header {
+  background-color: var(--color-bg-white);
+  padding: var(--space-10) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.find-doctor-header__desc {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+}
+
+.find-doctor-layout {
+  display: grid;
+  grid-template-columns: 280px 1fr;
+  gap: var(--space-8);
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-16);
+  align-items: start;
+}
+
+/* Filters */
+.find-doctor-filters {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-6));
+}
+
+.find-doctor-filters__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.find-doctor-filters__clear {
+  background: none;
+  border: none;
+  font-size: var(--font-size-caption);
+  font-family: var(--font-family);
+  color: var(--color-text-secondary);
+  cursor: pointer;
+  padding: var(--space-1);
+}
+
+.find-doctor-filters__clear:hover {
+  color: var(--color-text-primary);
+  text-decoration: underline;
+}
+
+.find-doctor-filters__form {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.find-doctor-filters__group {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+}
+
+.find-doctor-filters__label {
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+}
+
+.find-doctor-filters__submit {
+  margin-top: var(--space-2);
+}
+
+/* Results */
+.find-doctor-results {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.find-doctor-results__header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: var(--space-2);
+}
+
+.find-doctor-results__count {
+  font-size: var(--font-size-body);
+  color: var(--color-text-secondary);
+}
+
+.find-doctor-results__count strong {
+  color: var(--color-text-primary);
+}
+
+.find-doctor-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: var(--space-6);
+}
+
+.find-doctor-empty {
+  background-color: var(--color-bg-white);
+  border: 1px dashed var(--color-border-strong);
+  border-radius: var(--radius-lg);
+  padding: var(--space-12) 0;
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .find-doctor-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+  }
+  
+  .find-doctor-filters {
+    position: static;
+  }
+}

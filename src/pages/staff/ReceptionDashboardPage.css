@@ -1,0 +1,110 @@
+.dashboard-header {
+  background-color: var(--color-bg-white);
+  padding: var(--space-6) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.dashboard-header__inner {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.dashboard-header__date {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+}
+
+.reception-content {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-16);
+}
+
+.reception-controls {
+  display: flex;
+  gap: var(--space-4);
+  margin-bottom: var(--space-6);
+}
+
+.reception-search {
+  flex: 1;
+  max-width: 400px;
+}
+
+.reception-filter {
+  width: 200px;
+}
+
+.reception-queue {
+  background-color: var(--color-bg-white);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow-x: auto;
+}
+
+.queue-table {
+  width: 100%;
+  border-collapse: collapse;
+  text-align: left;
+}
+
+.queue-table th {
+  background-color: var(--color-bg-secondary);
+  padding: var(--space-3) var(--space-4);
+  font-size: var(--font-size-caption);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.queue-table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--color-border);
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-primary);
+  vertical-align: middle;
+}
+
+.queue-table tr:last-child td {
+  border-bottom: none;
+}
+
+.queue-patient {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.queue-id {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-disabled);
+}
+
+.queue-token {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px;
+  height: 28px;
+  background-color: var(--color-accent-light);
+  color: var(--color-accent-primary);
+  font-weight: var(--font-weight-bold);
+  border-radius: 50%;
+}
+
+.queue-table__actions {
+  text-align: right;
+  width: 120px;
+}
+
+.queue-empty {
+  text-align: center;
+  padding: var(--space-10) !important;
+  color: var(--color-text-secondary) !important;
+}
+.queue-reschedule-form { display: grid; grid-template-columns: repeat(2, minmax(150px, 1fr)) auto auto; align-items: end; gap: var(--space-3); padding: var(--space-4); background: var(--color-bg-secondary); }
+.queue-reschedule-form > p { grid-column: 1 / -1; margin: 0; }
+@media(max-width:760px) { .queue-reschedule-form { grid-template-columns: 1fr; } .queue-reschedule-form > p { grid-column: 1; } }

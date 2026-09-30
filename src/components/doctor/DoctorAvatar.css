@@ -1,0 +1,23 @@
+.doctor-avatar {
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.doctor-avatar--sm  { width: 40px;  height: 40px;  }
+.doctor-avatar--md  { width: 56px;  height: 56px;  }
+.doctor-avatar--lg  { width: 80px;  height: 80px;  }
+.doctor-avatar--xl  { width: 120px; height: 120px; border-radius: var(--radius-lg); }
+
+.doctor-avatar--initials {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: var(--font-weight-semibold);
+  letter-spacing: 0.02em;
+}
+
+.doctor-avatar--sm.doctor-avatar--initials  { font-size: var(--font-size-caption); }
+.doctor-avatar--md.doctor-avatar--initials  { font-size: var(--font-size-body-sm); }
+.doctor-avatar--lg.doctor-avatar--initials  { font-size: var(--font-size-h3); }
+.doctor-avatar--xl.doctor-avatar--initials  { font-size: var(--font-size-h2); }

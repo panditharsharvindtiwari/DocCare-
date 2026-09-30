@@ -1,0 +1,75 @@
+.specialities-header {
+  background-color: var(--color-bg-white);
+  padding: var(--space-10) 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.specialities-header__desc {
+  font-size: var(--font-size-body-lg);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-2);
+}
+
+.specialities-content {
+  padding-top: var(--space-8);
+  padding-bottom: var(--space-16);
+}
+
+.specialities-grid {
+  column-count: 2;
+  column-gap: var(--space-8);
+}
+
+.speciality-category {
+  break-inside: avoid;
+  margin-bottom: var(--space-8);
+}
+
+.speciality-category__title {
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-4);
+  padding-bottom: var(--space-2);
+  border-bottom: 2px solid var(--color-border);
+}
+
+.speciality-category__list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.speciality-category__item {
+  display: flex;
+  flex-direction: column;
+  padding: var(--space-3);
+  border-radius: var(--radius-md);
+  text-decoration: none;
+  transition: background-color var(--transition-fast);
+}
+
+.speciality-category__item:hover {
+  background-color: var(--color-bg-white);
+  text-decoration: none;
+  box-shadow: var(--shadow-sm);
+}
+
+.speciality-category__item-name {
+  font-size: var(--font-size-body);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+.speciality-category__item-desc {
+  font-size: var(--font-size-caption);
+  color: var(--color-text-secondary);
+  line-height: var(--line-height-normal);
+}
+
+@media (max-width: 768px) {
+  .specialities-grid {
+    column-count: 1;
+  }
+}

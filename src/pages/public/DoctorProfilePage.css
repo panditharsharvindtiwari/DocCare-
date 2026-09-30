@@ -1,0 +1,155 @@
+.doctor-profile-header {
+  background-color: var(--color-bg-white);
+  padding: var(--space-6) 0 var(--space-10);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.doctor-profile-header__back {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-1);
+  font-size: var(--font-size-body-sm);
+  font-weight: var(--font-weight-medium);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  margin-bottom: var(--space-8);
+  transition: color var(--transition-fast);
+}
+
+.doctor-profile-header__back:hover {
+  color: var(--color-text-primary);
+  text-decoration: none;
+}
+
+.doctor-profile-header__main {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+}
+
+.doctor-profile-header__info {
+  flex: 1;
+  min-width: 0;
+}
+
+.doctor-profile-header__designation {
+  font-size: var(--font-size-h4);
+  color: var(--color-text-secondary);
+  margin-top: var(--space-1);
+  margin-bottom: var(--space-3);
+}
+
+.doctor-profile-header__meta {
+  display: flex;
+  gap: var(--space-3);
+  flex-wrap: wrap;
+}
+
+.doctor-profile-header__actions {
+  flex-shrink: 0;
+  width: 240px;
+}
+
+.doctor-profile-layout {
+  display: grid;
+  grid-template-columns: 1fr 360px;
+  gap: var(--space-12);
+  padding-top: var(--space-10);
+  padding-bottom: var(--space-16);
+  align-items: start;
+}
+
+/* Main Content */
+.doctor-profile-main {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-10);
+  min-width: 0;
+}
+
+.doctor-profile-disclaimer {
+  background-color: var(--color-warning-light);
+  border: 1px solid var(--color-warning);
+  color: var(--color-warning);
+  padding: var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--font-size-body-sm);
+  line-height: var(--line-height-relaxed);
+}
+
+.doctor-profile-section {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.doctor-profile-list {
+  list-style-type: disc;
+  padding-left: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  color: var(--color-text-primary);
+}
+
+.doctor-profile-list li {
+  padding-left: var(--space-1);
+}
+
+/* Sidebar */
+.doctor-profile-card {
+  background-color: var(--color-bg-white);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--color-border);
+  padding: var(--space-5);
+}
+
+.doctor-profile-card__title {
+  margin-bottom: var(--space-5);
+  padding-bottom: var(--space-3);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.doctor-profile-details {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.doctor-profile-details__row dt {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--font-size-caption);
+  color: var(--color-text-secondary);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-1);
+}
+
+.doctor-profile-details__row dd {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-primary);
+  margin-left: calc(16px + var(--space-2));
+  line-height: var(--line-height-normal);
+}
+
+/* Responsive */
+@media (max-width: 960px) {
+  .doctor-profile-header__main {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-6);
+  }
+
+  .doctor-profile-header__actions {
+    width: 100%;
+  }
+
+  .doctor-profile-layout {
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+}
+.doctor-profile-header__subspecialty { color: var(--color-text-secondary); font-size: var(--font-size-body-sm); margin: 0 0 var(--space-3); }
+.doctor-profile-header__experience { display: inline-flex; align-items: center; gap: var(--space-2); margin: 0 0 var(--space-3); color: var(--color-accent-primary); font-size: var(--font-size-body-sm); font-weight: var(--font-weight-semibold); }
+.doctor-profile-details__row--experience dd { color: var(--color-text-primary); font-weight: var(--font-weight-semibold); }

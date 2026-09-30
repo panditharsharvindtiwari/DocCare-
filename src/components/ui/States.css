@@ -1,0 +1,38 @@
+.state-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: var(--space-16) var(--space-6);
+  gap: var(--space-3);
+}
+
+.state-spinner {
+  color: var(--color-accent-primary);
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+.state-title {
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-semibold);
+  color: var(--color-text-primary);
+}
+
+.state-title--error {
+  color: var(--color-error);
+}
+
+.state-message {
+  font-size: var(--font-size-body-sm);
+  color: var(--color-text-secondary);
+  max-width: 360px;
+}
+
+.state-action {
+  margin-top: var(--space-2);
+}
