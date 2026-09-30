@@ -1,7 +1,7 @@
 import React, { useState, useMemo } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { ArrowLeft, Calendar as CalendarIcon, User, FileText, CheckCircle } from 'lucide-react';
-import { format, addDays, startOfToday } from 'date-fns';
+import { format, addDays, startOfToday, parseISO } from 'date-fns';
 import { mockDb } from '../../data/mockDb';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
@@ -45,6 +45,7 @@ const [selectedDate, setSelectedDate] = useState(() => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [newAppointmentId, setNewAppointmentId] = useState('');
 
+  const selectedSchedule = doctor ? getScheduleForDate(doctor.schedules, selectedDate, doctor.id) : undefined;
   const availableSlots = useMemo(() => {
     if (!doctor) return [];
     return getGeneratedSlots(doctor.schedules, allAppointments, selectedDate, doctor.id);
@@ -61,6 +62,10 @@ const [selectedDate, setSelectedDate] = useState(() => {
       </main>
     );
   }
+
+  const breakStart = selectedSchedule?.breakStartTime;
+  const morningSlots = availableSlots.filter(slot => slot.startTime < (breakStart || '12:00'));
+  const afternoonSlots = availableSlots.filter(slot => slot.startTime >= (breakStart || '12:00'));
 
   function handleDateChange(e: React.ChangeEvent<HTMLInputElement>) {
     setSelectedDate(e.target.value);
@@ -186,31 +191,17 @@ const [selectedDate, setSelectedDate] = useState(() => {
               </div>
 
               <div className="book-time-slots">
-                <label className="input-label">Available Slots for {format(new Date(selectedDate), 'MMM d, yyyy')}</label>
+                <div className="book-slots-heading"><span className="input-label">Available appointments for</span><strong>{format(parseISO(selectedDate), 'EEEE, MMMM d')}</strong></div>
                 
-                {getScheduleForDate(doctor.schedules, selectedDate, doctor.id)?.breakStartTime && (
-                  <p className="book-break-note" role="note">
-                    {getScheduleForDate(doctor.schedules, selectedDate, doctor.id)?.breakReason || 'Break'} · {getScheduleForDate(doctor.schedules, selectedDate, doctor.id)?.breakStartTime}–{getScheduleForDate(doctor.schedules, selectedDate, doctor.id)?.breakEndTime}
-                  </p>
-                )}
+                {selectedSchedule && <p className="book-schedule-meta">Working hours {selectedSchedule.startTime} – {selectedSchedule.endTime} · {selectedSchedule.slotDuration} minute slots</p>}
                 {availableSlots.length > 0 ? (
-                  <div className="book-slots-grid">
-                    {availableSlots.map(slot => (
-                      <TimeSlot
-                        key={slot.startTime}
-                        time={slot.startTime}
-                        endTime={slot.endTime}
-                        remaining={slot.remaining}
-                        status={slot.status}
-                        selected={selectedTime === slot.startTime}
-                        onSelect={setSelectedTime}
-                      />
-                    ))}
-                  </div>
+                  <>
+                    {morningSlots.length > 0 && <section className="book-slot-period" aria-label="Morning appointment slots"><h4>Morning</h4><div className="book-slots-grid">{morningSlots.map(slot => <TimeSlot key={slot.startTime} time={slot.startTime} endTime={slot.endTime} remaining={slot.remaining} status={slot.status} selected={selectedTime === slot.startTime} onSelect={setSelectedTime} />)}</div></section>}
+                    {selectedSchedule?.breakStartTime && selectedSchedule.breakEndTime && <div className="book-break-note" role="note"><strong>{selectedSchedule.breakReason || 'Lunch Break'}</strong><span>{selectedSchedule.breakStartTime} – {selectedSchedule.breakEndTime}</span></div>}
+                    {afternoonSlots.length > 0 && <section className="book-slot-period" aria-label="Afternoon appointment slots"><h4>Afternoon</h4><div className="book-slots-grid">{afternoonSlots.map(slot => <TimeSlot key={slot.startTime} time={slot.startTime} endTime={slot.endTime} remaining={slot.remaining} status={slot.status} selected={selectedTime === slot.startTime} onSelect={setSelectedTime} />)}</div></section>}
+                  </>
                 ) : (
-                  <div className="book-slots-empty">
-                    No scheduled slots on this date. Choose a working day for this doctor.
-                  </div>
+                  <div className="book-slots-empty">No scheduled slots on this date. Choose a working day for this doctor.</div>
                 )}
               </div>
             </div>
@@ -302,14 +293,14 @@ const [selectedDate, setSelectedDate] = useState(() => {
               
               <div className="book-summary-details__row">
                 <dt>Date</dt>
-                <dd>{format(new Date(selectedDate), 'EEEE, MMMM d, yyyy')}</dd>
+                <dd>{format(parseISO(selectedDate), 'EEEE, MMMM d, yyyy')}</dd>
               </div>
               <div className="book-summary-details__row">
                 <dt>Time</dt>
                 <dd>
                   {selectedTime ? (
                     <span className="text-accent">
-                      {format(new Date(`2000-01-01T${selectedTime}`), 'h:mm a')}
+                      {format(new Date(`2000-01-01T${selectedTime}`), 'h:mm a')} – {format(new Date(`2000-01-01T${availableSlots.find(slot => slot.startTime === selectedTime)?.endTime || selectedTime}`), 'h:mm a')}
                     </span>
                   ) : (
                     <span className="text-secondary">Not selected</span>
@@ -317,6 +308,7 @@ const [selectedDate, setSelectedDate] = useState(() => {
                 </dd>
               </div>
             </dl>
+            {selectedTime && <div className="book-selected-summary" role="status"><strong>Selected appointment</strong><span>{doctor.name}</span><span>{format(parseISO(selectedDate), 'EEEE, MMMM d')}</span><span>{format(new Date(`2000-01-01T${selectedTime}`), 'h:mm a')} – {format(new Date(`2000-01-01T${availableSlots.find(slot => slot.startTime === selectedTime)?.endTime || selectedTime}`), 'h:mm a')}</span><span>{availableSlots.find(slot => slot.startTime === selectedTime)?.remaining} {availableSlots.find(slot => slot.startTime === selectedTime)?.remaining === 1 ? 'spot' : 'spots'} remaining</span></div>}
           </div>
         </aside>
       </div>
